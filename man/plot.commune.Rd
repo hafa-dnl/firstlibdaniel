@@ -4,26 +4,48 @@
 \alias{plot.commune}
 \title{Visualiser les catégories socio-professionnelles des Maires d'une commune}
 \usage{
-\method{plot}{commune}(df)
+\method{plot}{commune}(x, ...)
 }
 \arguments{
-\item{df}{Un data.frame contenant les informations des élus d'une commune, avec au moins les colonnes
-suivantes : \code{Libelle_fonction}, \code{Code_categorie_socio_professionnelle}, \code{Libelle_commune}, et \code{Libelle_departement}.
-La colonne \code{Libelle_fonction} doit inclure les titres des fonctions des élus (Maire, adjoint, etc.).}
+\item{x}{Un objet de classe "commune".}
+
+\item{...}{Arguments supplementaires passes a \code{ggplot2::ggplot()}.}
 }
 \value{
-Un graphique de type barplot, représentant la fréquence d'apparition des différentes catégories socio-professionnelles
-des Maires.
+Un graphique \code{ggplot2} representant la repartition des elus par code professionnel dans la commune.
 }
 \description{
-Cette fonction génère un barplot représentant la fréquence des différentes catégories socio-professionnelles
-des Maires d'une commune, en filtrant les Maires et en excluant les adjoints et les délégués.
-Le barplot est affiché avec des barres horizontales et inclut les codes des catégories socio-professionnelles.
+La fonction verifie que l'objet fourni est bien de classe \code{"commune"}, valide sa structure avec \code{validate_schema()},
+puis produit un graphique en barres horizontales representant la repartition des elus par code professionnel.
+Le titre du graphique est compose du nom de la commune et de son departement.
+}
+\details{
+Cette fonction genere un graphique en barres representant le nombre d'elus par code professionnel
+pour une commune donnee.
+\itemize{
+\item La fonction utilise \code{validate_schema(x)} pour s'assurer que la structure des donnees est correcte.
+\item Elle verifie que \code{x} est bien un objet de classe \code{"commune"}, sinon elle renvoie une erreur.
+\item Elle compte le nombre d'elus par code professionnel et filtre ceux ayant \code{n = 0}.
+\item Un graphique en barres est genere, trie en ordre decroissant et affichant les valeurs sur les barres.
+}
 }
 \examples{
-df <- data.frame(Libelle_fonction = c("Maire", "Maire-adjoint", "Conseiller", "Maire"),
-                 Code_categorie_socio_professionnelle = c("Cadre", "Ouvrier", "Cadre", "Cadre"),
-                 Libelle_commune = "Nantes",
-                 Libelle_departement = "Loire-Atlantique")
-plot.commune(df)
+\dontrun{
+library(ggplot2)
+library(dplyr)
+
+# Exemple de dataframe representant une commune
+data <- data.frame(
+  Libelle.de.la.commune = rep("Paris", 6),
+  Libelle.du.departement = rep("Paris", 6),
+  Code.de.la.categorie.socio.professionnelle = c("A1", "B2", "A1", "C3", "B2", "A1")
+)
+
+# Ajouter la classe "commune"
+class(data) <- c("commune", class(data))
+
+# Generer le graphique
+plot_commune(data)
+}
+
 }

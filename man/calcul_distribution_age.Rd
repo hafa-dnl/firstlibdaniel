@@ -4,22 +4,24 @@
 \alias{calcul_distribution_age}
 \title{Calculer la distribution des ages}
 \usage{
-calcul_distribution_age(df)
+calcul_distribution_age(data)
 }
 \arguments{
-\item{df}{Un data.frame contenant les données des élus, incluant la colonne \code{Date_de_naissance}
-qui spécifie la date de naissance des élus.}
+\item{data}{Un dataframe contenant au moins la colonne suivante :
+\itemize{
+\item \code{Date.de.naissance} (Date) : La date de naissance des elus, qui doit etre deja convertie en format \code{Date}.
+}}
 }
 \value{
-Un vecteur contenant les quantiles des âges (min, 25e percentile, médiane, 75e percentile, max).
+Un vecteur numerique representant les ages des elus en annees.
 }
 \description{
-Cette fonction calcule la distribution des âges des élus à partir de leur date de naissance.
-Elle transforme d'abord la colonne \code{Date_de_naissance} en format Date, puis calcule l'âge
-de chaque élu en années, et retourne les quantiles (minimum, 25e percentile, médiane, 75e percentile, maximum) des âges.
+Cette fonction calcule la distribution des ages a partir d'une colonne \code{Date.de.naissance} en format \strong{Date}.
 }
-\examples{
-df <- data.frame(Date_de_naissance = c("01/01/1980", "15/02/1990", "20/03/1975"))
-calcul_distribution_age(df)
-
+\details{
+\itemize{
+\item La fonction verifie la presence de la colonne \code{Date.de.naissance}.
+\item Elle verifie que la colonne est bien de type \strong{Date}, sinon elle renvoie une erreur.
+\item Elle calcule l'age en annees en utilisant la difference entre la date du jour (\code{Sys.Date()}) et la \code{Date.de.naissance}.
+}
 }

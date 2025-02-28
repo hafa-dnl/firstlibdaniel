@@ -2,31 +2,52 @@
 % Please edit documentation in R/fonctions.R
 \name{plot.departement}
 \alias{plot.departement}
-\title{Visualiser la repartition des categories socio-professionnelles des Maires}
+\title{Visualiser la repartition des elus par code professionnel dans un departement}
 \usage{
-\method{plot}{departement}(df)
+\method{plot}{departement}(x, ...)
 }
 \arguments{
-\item{df}{Un data.frame contenant les données des élus, avec notamment les colonnes
-\code{Libelle_fonction} (pour la fonction de l'élu), \code{Code_categorie_socio_professionnelle}
-(pour les catégories socio-professionnelles), et \code{Libelle_commune} (pour les communes).}
+\item{x}{Un objet de classe "departement".}
+
+\item{...}{Arguments supplementaires passes a \code{ggplot2::ggplot()}.}
 }
 \value{
-Aucun retour. La fonction affiche un graphique en barres représentant les catégories
-socio-professionnelles des Maires dans le département.
+Un graphique \code{ggplot2} representant la repartition des elus par code professionnel dans le departement.
 }
 \description{
-Cette fonction permet d'afficher un graphique en barres (barplot) représentant les 10
-catégories socio-professionnelles les plus fréquentes parmi les Maires dans un département.
-La fonction filtre les Maires dans le data.frame, exclut les adjoints et Maires délégués, puis
-crée un barplot des catégories socio-professionnelles des Maires restants.
+La fonction verifie que l'objet fourni est bien de classe \code{"departement"}, valide sa structure avec \code{validate_schema()},
+puis produit un graphique en barres horizontales representant la repartition des elus par code professionnel.
+Le graphique affiche les \strong{10 codes professionnels les plus representes} dans le departement.
+Le titre du graphique inclut le nom du departement et le nombre total de communes qu'il contient.
+}
+\details{
+Cette fonction genere un graphique en barres representant le nombre d'elus par code professionnel
+pour un departement donne.
+\itemize{
+\item La fonction utilise \code{validate_schema(x)} pour s'assurer que la structure des donnees est correcte.
+\item Elle verifie que \code{x} est bien un objet de classe \code{"departement"}, sinon elle renvoie une erreur.
+\item Elle compte le nombre total de communes distinctes presentes dans le departement.
+\item Elle filtre et selectionne les \strong{10 codes professionnels les plus representes}.
+\item Un graphique en barres est genere, trie en ordre decroissant et affichant les valeurs sur les barres.
+}
 }
 \examples{
-df <- data.frame(
-  Libelle_fonction = c("Maire", "Adjoint au Maire", "Maire", "Maire délégué"),
-  Code_categorie_socio_professionnelle = c("CSP1", "CSP2", "CSP1", "CSP3"),
-  Libelle_commune = c("Nantes", "Nantes", "Faverelles", "Faverelles"),
-  Libelle_departement = c("Loire-Atlantique", "Loire-Atlantique", "Gers", "Gers")
+\dontrun{
+library(ggplot2)
+library(dplyr)
+
+# Exemple de dataframe representant un departement
+data <- data.frame(
+  Libelle.du.departement = rep("Paris", 15),
+  Libelle.de.la.commune = c(rep("Paris", 10), rep("Boulogne-Billancourt", 5)),
+  Code.de.la.categorie.socio.professionnelle = sample(LETTERS[1:5], 15, replace = TRUE)
 )
-plot.departement(df)
+
+# Ajouter la classe "departement"
+class(data) <- c("departement", class(data))
+
+# Generer le graphique
+plot_departement(data)
+}
+
 }

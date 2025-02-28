@@ -2,29 +2,29 @@
 % Please edit documentation in R/fonctions.R
 \name{plot_code_professions}
 \alias{plot_code_professions}
-\title{Visualiser la répartition des catégories socio-professionnelles des maires}
+\title{Visualiser la répartition des catégories socio-professionnelles des maires
+Visualiser la repartition des elus par code professionnel}
 \usage{
-plot_code_professions(df)
+plot_code_professions(data)
 }
 \arguments{
-\item{df}{Un data.frame contenant les donnees des elus, incluant la colonne \code{Libelle_fonction}
-qui specifie la fonction des elus et \code{Code_categorie_socio_professionnelle} pour les catégories
-socio-professionnelles des élus.}
+\item{data}{Un dataframe contenant au moins la colonne suivante :
+\itemize{
+\item \code{Code.de.la.categorie.socio.professionnelle} (character) : Code professionnel des elus.
+}}
 }
 \value{
-Un graphique en barres représentant la répartition des catégories socio-professionnelles des maires.
+Un graphique \code{ggplot2} representant la repartition des elus par code professionnel.
 }
 \description{
-Cette fonction génère un graphique en barres horizontales montrant la répartition des catégories
-socio-professionnelles des maires (excluant les adjoints et les délégués) dans un jeu de données.
-Le graphique est basé sur la colonne \code{Code_categorie_socio_professionnelle} et les données sont
-filtrées pour ne conserver que les maires, excluant les adjoints et les délégués.
+La fonction compte le nombre d'elus pour chaque code professionnel (\code{Code.de.la.categorie.socio.professionnelle}),
+filtre les codes n'ayant aucun elu, puis produit un graphique en barres classe par ordre decroissant.
 }
-\examples{
-df <- data.frame(Libelle_fonction = c("Maire", "Adjoint au Maire", "Maire délégué", "Maire"),
-                 Code_categorie_socio_professionnelle = c("Cadre", "Ouvrier", "Cadre", "Cadre"),
-                 Code_departement = c("44", "44", "44", "44"),
-                 Libelle_departement = c("Loire-Atlantique", "Loire-Atlantique", "Loire-Atlantique", "Loire-Atlantique"))
-plot_code_professions(df)
-
+\details{
+Cette fonction genere un graphique en barres horizontales representant le nombre d'elus par code professionnel.
+\itemize{
+\item Les valeurs a \code{n = 0} sont filtrees avant l'affichage du graphique.
+\item Le graphique est trie par nombre d'elus de maniere decroissante.
+\item Les barres sont colorees en bleu fonce pour une meilleure lisibilite.
+}
 }

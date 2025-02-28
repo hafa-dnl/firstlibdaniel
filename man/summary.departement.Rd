@@ -2,48 +2,16 @@
 % Please edit documentation in R/fonctions.R
 \name{summary.departement}
 \alias{summary.departement}
-\title{Summary des Departements}
+\title{Methode S3 pour summary.departement}
 \usage{
-\method{summary}{departement}(x)
+\method{summary}{departement}(object, ...)
 }
 \arguments{
-\item{x}{Un data.frame contenant les informations sur les élus et les communes. Il doit inclure les colonnes
-\code{Libelle_departement}, \code{Libelle_commune}, \code{Libelle_fonction}, \code{Date_de_naissance}, et \code{Nom_elu}.}
-}
-\value{
-Cette fonction ne retourne pas de valeur, mais elle affiche plusieurs informations concernant le département,
-les communes, et les élus, telles que :
-- Le nom du département
-- Le nombre de communes dans le département
-- Le nombre d'élus dans le département
-- La distribution des âges des élus
-- Les élus les plus jeunes et les plus âgés
-- La commune avec la plus haute moyenne d'âge et la commune avec la plus faible moyenne d'âge
+\item{object}{Un objet de classe \code{departement}.}
+
+\item{...}{Arguments supplementaires (non utilises).}
 }
 \description{
-Cette fonction calcule et affiche un résumé statistique pour un département, basé sur les élus qui y figurent.
-Elle donne des informations sur le département, les communes, la distribution des âges des élus, ainsi que des
-statistiques sur les élus les plus jeunes et les plus âgés, les communes avec la moyenne d'âge la plus haute et la plus faible.
-}
-\details{
-Cette fonction effectue les calculs suivants :
-\itemize{
-\item Vérifie qu'il y a plusieurs communes et un seul département dans le jeu de données.
-\item Calcule le nombre d'adjoints dans le département.
-\item Calcule la distribution des âges des élus.
-\item Identifie les élus les plus jeunes et les plus âgés, ainsi que les communes ayant les moyennes d'âge les plus
-élevées et les plus faibles.
-}
-
-Les résultats sont affichés directement via \code{cat()}.
-}
-\examples{
-df_departement <- data.frame(
-  Libelle_departement = rep("Loire-Atlantique", 4),
-  Libelle_commune = c("Nantes", "Nantes", "Faverelles", "Faverelles"),
-  Libelle_fonction = c("Maire", "Adjoint au Maire", "Conseiller", "Adjoint au Maire"),
-  Date_de_naissance = c("12/06/1960", "14/11/1970", "01/01/1980", "20/09/1990"),
-  Nom_elu = c("Dupont", "Martin", "Bernard", "Dumas")
-)
-summary.departement(df_departement)
+Cette fonction redirige automatiquement \code{summary()} vers \code{summary_departement()}
+pour les objets de classe \code{departement}.
 }

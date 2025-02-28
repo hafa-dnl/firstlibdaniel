@@ -2,28 +2,16 @@
 % Please edit documentation in R/fonctions.R
 \name{summary.commune}
 \alias{summary.commune}
-\title{Resume des donnees d'une commune}
+\title{Methode S3 pour summary.commune}
 \usage{
-\method{summary}{commune}(x)
+\method{summary}{commune}(object, ...)
 }
 \arguments{
-\item{x}{Un objet de type \code{data.frame} contenant les donnees des elus, incluant
-les colonnes \code{Libelle_commune} et \code{Libelle_fonction} pour les fonctions des
-elus, ainsi que les informations relatives a l'age des elus.}
-}
-\value{
-Cette fonction n'a pas de valeur de retour mais imprime des informations sur la
-commune, le nombre d'élus, la distribution des âges, et les données de l'élu le plus âgé.
+\item{object}{Un objet de classe \code{commune}.}
+
+\item{...}{Arguments supplementaires (non utilises).}
 }
 \description{
-Cette fonction permet d'afficher un resume des donnees d'une commune a partir d'un
-data.frame contenant des informations sur les elus de cette commune. Elle calcule
-le nombre d'elus de type "Maire", fournit la distribution des ages des elus, et
-affiche les informations concernant l'élu le plus age.
-}
-\examples{
-df_commune <- data.frame(Libelle_commune = c("Nantes", "Nantes", "Nantes"),
-                         Libelle_fonction = c("Maire", "Adjoint", "Maire"),
-                         Date_de_naissance = c("1970-01-01", "1980-05-12", "1950-03-03"))
-summary.commune(df_commune)
+Cette fonction redirige automatiquement \code{summary()} vers \code{summary_commune()}
+pour les objets de classe \code{commune}.
 }

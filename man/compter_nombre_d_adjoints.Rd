@@ -4,22 +4,21 @@
 \alias{compter_nombre_d_adjoints}
 \title{Compter le nombre d'adjoints}
 \usage{
-compter_nombre_d_adjoints(df)
+compter_nombre_d_adjoints(data)
 }
 \arguments{
-\item{df}{Un data.frame contenant les donnees des elus, incluant la colonne \code{Libelle_fonction}
-qui specifie la fonction des elus.}
+\item{data}{Un dataframe contenant au moins les colonnes \code{Nom.de.l.elu}, \code{Prenom.de.l.elu} et \code{Date.de.naissance}.}
 }
 \value{
-Un entier representant le nombre d'adjoints dans le data.frame.
+Un entier representant le nombre total d'adjoints dans le dataframe.
 }
 \description{
-Cette fonction permet de compter le nombre d'adjoints dans un jeu de donnees en fonction
-de la colonne \code{Libelle_fonction}. Elle identifie les lignes contenant le terme "adjoint"
-et retourne le nombre total d'adjoints dans le data.frame.
+Compter le nombre d'adjoints uniques
 }
-\examples{
-df <- data.frame(Libelle_fonction = c("Maire", "Adjoint au Maire", "Adjoint", "Conseiller"))
-compter_nombre_d_adjoints(df)
-
+\details{
+Cette fonction compte le nombre total d'adjoints presents dans un dataframe contenant leurs informations.
+\itemize{
+\item La fonction verifie la presence des colonnes obligatoires dans \code{data}.
+\item Elle compte le nombre total de lignes du dataframe, supposant que chaque ligne represente un elu unique.
+}
 }

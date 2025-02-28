@@ -2,67 +2,35 @@
 % Please edit documentation in R/fonctions.R
 \name{creer_departement}
 \alias{creer_departement}
-\title{Creer une Commune}
+\title{Creer un Departement}
 \usage{
-creer_departement(df)
-
 creer_departement(df)
 }
 \arguments{
-\item{nom_commune}{Le nom de la commune à créer (caractères).}
-
-\item{elus}{Un data.frame contenant les élus associés à la commune. Le data.frame doit comporter les colonnes
-\code{Nom_elu}, \code{Prenom_elu}, \code{Libelle_fonction}, et \code{Date_de_naissance}.}
-
-\item{nom_departement}{Le nom du département à créer (caractères).}
-
-\item{code_departement}{Le code du département (caractères).}
-
-\item{communes}{Une liste de data.frames représentant les communes du département. Chaque data.frame doit inclure les
-informations des élus dans la commune.}
+\item{df}{Un dataframe contenant au moins la colonne \code{Code.du.departement}.}
 }
 \value{
-Un data.frame représentant la commune avec ses élus et les informations associées.
-
-Un data.frame représentant le département avec ses communes et les élus associés.
+Un dataframe de classe \code{"departement"}, qui peut etre utilise avec des fonctions specifiques aux departements.
 }
 \description{
-Cette fonction permet de créer une commune en utilisant les informations passées en argument.
-Elle crée un data.frame avec les colonnes nécessaires pour enregistrer les données relatives à la commune,
-telles que son nom, son département, et les élus qui y figurent.
-
-Cette fonction permet de créer un département en utilisant les informations fournies, telles que le nom du département,
-le code du département et les communes qui en font partie.
+Cette fonction transforme un dataframe representant un departement en un objet de classe "departement".
 }
 \details{
-La fonction vérifie d'abord que les données fournies pour les élus sont correctes et, si tout est en ordre,
-elle crée une nouvelle commune avec les informations données. La commune inclura également une colonne avec
-les informations des élus.
-
-La fonction crée un département en prenant en compte les communes qui en font partie, et inclut un enregistrement
-des élus pour chaque commune. Le département aura une colonne pour le nom, le code, ainsi que les communes associées.
+\itemize{
+\item La fonction verifie que la colonne \code{Code.du.departement} est presente dans \code{df}.
+\item Elle s'assure que le dataframe represente un seul departement, sinon elle genere une erreur.
+\item La classe \code{"departement"} est ajoutee a l'objet pour permettre un traitement specifique.
+}
 }
 \examples{
-df_elus_commune <- data.frame(
-  Nom_elu = c("Dupont", "Martin"),
-  Prenom_elu = c("Jean", "Paul"),
-  Libelle_fonction = c("Maire", "Conseiller"),
-  Date_de_naissance = c("12/06/1960", "14/11/1970")
+\dontrun{
+data <- data.frame(
+  Code.du.departement = rep("75", 10),
+  Nom.du.departement = rep("Paris", 10),
+  Population = c(100, 200, 150, 180, 220, 250, 300, 270, 260, 280)
 )
-creer_commune("Nantes", "44", df_elus_commune)
-df_elus_commune1 <- data.frame(
-  Nom_elu = c("Dupont", "Martin"),
-  Prenom_elu = c("Jean", "Paul"),
-  Libelle_fonction = c("Maire", "Conseiller"),
-  Date_de_naissance = c("12/06/1960", "14/11/1970")
-)
-df_elus_commune2 <- data.frame(
-  Nom_elu = c("Bernard", "Lemoine"),
-  Prenom_elu = c("Pierre", "Michel"),
-  Libelle_fonction = c("Adjoint au Maire", "Conseiller"),
-  Date_de_naissance = c("05/03/1980", "01/08/1985")
-)
-communes <- list(creer_commune("Nantes", "44", df_elus_commune1),
-                 creer_commune("Faverelles", "44", df_elus_commune2))
-creer_departement("Loire-Atlantique", "44", communes)
+departement <- creer_departement(data)
+class(departement)  # Verifier la classe
+}
+
 }
