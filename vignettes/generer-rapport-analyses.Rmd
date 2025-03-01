@@ -2,19 +2,20 @@
 title: "Générer un rapport d'analyses"
 author: "Hafadhui Daniel"
 format: html
-
 ---
+
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
 ```
+
 # Introduction
 
 Le package firstlibdaniel permet d'analyser les données des élus français à travers plusieurs fonctions.
 
-Cette vignette détaille l'utilisation de trois fonctions  :
+Cette vignette détaille l'utilisation de trois fonctions :
 
 -summary_commune(): pour obtenir un résumé des élus d’une commune.
 
@@ -22,21 +23,19 @@ Cette vignette détaille l'utilisation de trois fonctions  :
 
 -generer_rapport(): pour générer un rapport HTML complet avec Quarto.
 
-
 ## Installation et Chargement du Package
 
-```{r setup}
+```{r }
 library(firstlibdaniel)
-library(dplyr)
-```
 
+```
 
 ## Fonction summary_commune(df)
 
 La fonction summary_commune() permet d'obtenir un résumé des élus d'une commune.
 
 ```{r}
-
+library(dplyr)
 commune_data <- elus_conseillers_municipaux_cm %>%
   filter(Code.de.la.commune == "44109") %>%
   creer_commune()
@@ -47,9 +46,7 @@ summary_commune(commune_data)
 
 **résultats :**
 
-le nom de la communne est "Nantes" 
-Il y a un total de 66 elus dans la commune de Nantes
-
+le nom de la communne est "Nantes" Il y a un total de 66 elus dans la commune de Nantes
 
 ## Fonction summary_departement(df)
 
@@ -57,12 +54,11 @@ La fonction summary_departement() offre une vue d’ensemble des élus d’un d�
 
 Elle affiche :
 
-- Le nom du département
-- Le nombre total de communes
-- Le nombre total d'elus
+-   Le nom du département
+-   Le nombre total de communes
+-   Le nombre total d'elus
 
-```{r setup}
-# Exemple pour le département de la Loire-Atlantique (44)
+```{r}
 departement_data <- elus_conseillers_municipaux_cm %>%
   filter(Code.du.departement == "44") %>%
   creer_departement()
@@ -72,11 +68,7 @@ summary_departement(departement_data)
 
 **Interprétation :**
 
-Le département étudié est Loire-Atlantique.
-Il contient 207 communes différentes.
-Il y a 4791 elus dans ce department
-
-
+Le département étudié est Loire-Atlantique. Il contient 207 communes différentes. Il y a 4791 elus dans ce department
 
 # Génération d’un Rapport Quarto
 
@@ -84,16 +76,14 @@ Il y a 4791 elus dans ce department
 
 La fonction generer_rapport() permet de générer un rapport interactif en HTML avec Quarto.
 
-Le rapport contiendra : 
+Le rapport contiendra :
 
-- Un résumé des élus de la commune et du département.
-- Des statistiques détaillées sur les élus.
-- Des graphiques pour illustrer les résultats.
+-   Un résumé des élus de la commune et du département.
+-   Des statistiques détaillées sur les élus.
+-   Des graphiques pour illustrer les résultats.
 
 Le fichier rapport_commune.html sera généré et contiendra toutes les analyses.
 
 ## 3. Utilisation de generer_rapport
 
- Pour générer un rapport HTML avec Quarto :
-Exemple avec la commune 44109 et le departement 44:
-**generer_rapport(commune = "44109", departement = "44", output = "rapport_nantes_final.html")**
+Pour générer un rapport HTML avec Quarto : Exemple avec la commune 44109 et le departement 44: **generer_rapport(commune = "44109", departement = "44", output = "rapport_nantes_final.html")**

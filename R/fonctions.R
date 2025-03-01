@@ -422,12 +422,7 @@ plot_departement <- function(x, ...) {
 #'   - `Code.de.la.commune` (character ou numeric) : Le code identifiant la commune.
 #'
 #' @return Un dataframe de classe `"commune"`, pret a etre utilise dans d'autres fonctions specifiques aux communes.
-#'
-#' @details
-#' - La fonction verifie que la colonne `Code.de.la.commune` est presente dans `df`.
-#' - Elle s'assure qu'il n'y a **qu'une seule commune distincte**, sinon elle genere une erreur.
-#' - Si la classe `"commune"` n'est pas deja presente, elle est ajoutee a l'objet.
-#'
+#' @export
 creer_commune <- function(df) {
   # Verifier si la colonne 'Code.de.la.commune' existe dans le dataframe
   if (!"Code.de.la.commune" %in% colnames(df)) {

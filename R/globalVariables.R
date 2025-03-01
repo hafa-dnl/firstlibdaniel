@@ -7,7 +7,8 @@ utils::globalVariables(c(
  "Libelle.de.la.commune",
  "Date.de.naissance",
  "Nom.de.l.elu",
- "Prenom.de.l.elu"
+ "Prenom.de.l.elu",
+ "Code.de.la.commune"
 ))
 utils::globalVariables(c(
  "Code.de.la.categorie.socio.professionnelle",

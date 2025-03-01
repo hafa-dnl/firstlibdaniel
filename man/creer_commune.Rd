@@ -19,10 +19,3 @@ Un dataframe de classe \code{"commune"}, pret a etre utilise dans d'autres fonct
 La fonction s'assure que le dataframe contient une seule commune distincte,
 et lui attribue la classe \code{"commune"} s'il ne l'a pas deja.
 }
-\details{
-\itemize{
-\item La fonction verifie que la colonne \code{Code.de.la.commune} est presente dans \code{df}.
-\item Elle s'assure qu'il n'y a \strong{qu'une seule commune distincte}, sinon elle genere une erreur.
-\item Si la classe \code{"commune"} n'est pas deja presente, elle est ajoutee a l'objet.
-}
-}

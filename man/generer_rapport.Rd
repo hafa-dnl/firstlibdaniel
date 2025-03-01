@@ -2,28 +2,20 @@
 % Please edit documentation in R/generer_rapport.R
 \name{generer_rapport}
 \alias{generer_rapport}
-\title{Génère un rapport en HTML à partir d'un fichier Quarto}
+\title{Generer un rapport}
 \usage{
 generer_rapport(commune, departement, output)
 }
 \arguments{
-\item{commune}{Code de la commune. Doit être un nombre ou une chaîne de caractères représentant le code
-de la commune.}
+\item{commune}{La commune pour laquelle generer le rapport (code INSEE).}
 
-\item{departement}{Code du département. Doit être un nombre ou une chaîne de caractères représentant
-le code du département.}
+\item{departement}{Le departement concerne (code numerique).}
 
-\item{output}{Chemin complet où le fichier HTML généré sera sauvegardé.}
+\item{output}{Le nom du fichier de sortie (ex: "rapport.pdf" ou "rapport.html").}
 }
 \value{
-Aucun retour, mais un fichier HTML est généré et sauvegardé à l'emplacement spécifié.
+Le chemin du fichier genere.
 }
 \description{
-Cette fonction génère un rapport en HTML à partir d'un fichier Quarto spécifié en utilisant les paramètres
-de la commune et du département. Le rapport est rendu en HTML et enregistré à l'emplacement spécifié par
-l'utilisateur.
-}
-\examples{
-# Génère un rapport pour la commune avec code 44109 et le département avec code 32 avec un chemin de sortie personnalisé
-generer_rapport(77056, 77, "output/mon_rapport.html")
+Cette fonction genere un rapport Quarto au format PDF ou HTML incluant :
 }

@@ -1,25 +1,14 @@
-# Projet ----
-
-#' Génère un rapport en HTML à partir d'un fichier Quarto
+#' Generer un rapport
 #'
-#' Cette fonction génère un rapport en HTML à partir d'un fichier Quarto spécifié en utilisant les paramètres
-#' de la commune et du département. Le rapport est rendu en HTML et enregistré à l'emplacement spécifié par
-#' l'utilisateur.
+#' Cette fonction genere un rapport Quarto au format PDF ou HTML incluant :
 #'
-#' @param commune Code de la commune. Doit être un nombre ou une chaîne de caractères représentant le code
-#'               de la commune.
-#' @param departement Code du département. Doit être un nombre ou une chaîne de caractères représentant
-#'                    le code du département.
-#' @param output Chemin complet où le fichier HTML généré sera sauvegardé.
+#' @param commune La commune pour laquelle generer le rapport (code INSEE).
+#' @param departement Le departement concerne (code numerique).
+#' @param output Le nom du fichier de sortie (ex: "rapport.pdf" ou "rapport.html").
 #'
-#' @return Aucun retour, mais un fichier HTML est généré et sauvegardé à l'emplacement spécifié.
-#'
-#' @import quarto
+#' @return Le chemin du fichier genere.
+#' @import ggplot2
 #' @export
-#'
-#' @examples
-#' # Génère un rapport pour la commune avec code 44109 et le département avec code 32 avec un chemin de sortie personnalisé
-#' generer_rapport(77056, 77, "output/mon_rapport.html")
 generer_rapport <- function(commune, departement, output) {
 
   # Localisation du fichier rapport.qmd
