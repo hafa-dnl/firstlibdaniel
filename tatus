@@ -1,0 +1,47 @@
+[33mcommit 58605b1bb5d6edef3089d78caca36c7f650d6340[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: hafa-dnl <djamilanob@gmail.com>
+Date:   Sat Mar 1 17:41:31 2025 +0100
+
+    github pages et documentation
+
+[33mcommit 7ae164c4a297d8a7c43942b653d8118593a1d310[m
+Author: hafa-dnl <djamilanob@gmail.com>
+Date:   Sat Mar 1 17:06:27 2025 +0100
+
+    vignette créer
+
+[33mcommit b64ab806078d3907c5d6ebd23cf93e21bc6c9cd2[m
+Author: hafa-dnl <djamilanob@gmail.com>
+Date:   Sat Mar 1 16:47:12 2025 +0100
+
+    projet final
+
+[33mcommit e12b5d58e571fff4c99afbb0694a439bb2433f25[m[33m ([m[1;32m_M[m[33m)[m
+Author: hafa-dnl <djamilanob@gmail.com>
+Date:   Fri Feb 28 20:42:23 2025 +0100
+
+    test reussi pour les fonctions
+
+[33mcommit e7e690a9c0c062e670937f0d8df8b2943b1bdfa2[m
+Author: hafa-dnl <djamilanob@gmail.com>
+Date:   Fri Feb 28 15:10:32 2025 +0100
+
+    envoie des fonctions
+
+[33mcommit 10cfdeababc8f5a69a56f088851b0f08a60338c1[m
+Author: hafa-dnl <djamilanob@gmail.com>
+Date:   Fri Feb 28 00:52:33 2025 +0100
+
+    Ajout de la documentation Roxygen pour les fonctions
+
+[33mcommit 978bddafdcc12f643dcb7a3f0a69ed26adbc114e[m
+Author: hafa-dnl <djamilanob@gmail.com>
+Date:   Fri Feb 28 00:47:13 2025 +0100
+
+    rajout des fonctions
+
+[33mcommit e67531d97fcaab36f270ca152e56829866ae92dd[m
+Author: hafa-dnl <djamilanob@gmail.com>
+Date:   Thu Feb 27 21:49:16 2025 +0100
+
+    debut de la creation du package
