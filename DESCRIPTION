@@ -3,23 +3,27 @@ Title: Descritpion des communes et départements
 Version: 0.0.0.9000
 Authors@R: 
     person("Hafadhui", "Daniel",email = "hafadhui.daniel@gmail.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
-License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
-    license
+Description: Ce package permet d'analyser les donnees des communes et departements en R.
+License: GPL-3
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
-Depends: 
-    R (>= 3.5)
+URL: https://hafa-dnl.github.io/firstlibdaniel/, https://github.com/hafa-daniel/firstlibdaniel
+BugReports: https://github.com/hafa-dnl/firstlibdaniel/issues
 Imports: 
     dplyr,
     ggplot2,
+    lubridate,
+    stats,
+    quarto,
     magrittr
+Depends: 
+    R (>= 3.5)
 LazyData: true
-Suggests: 
+Suggests:
     knitr,
     rmarkdown,
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
 VignetteBuilder: quarto
-URL: https://hafa-dnl.github.io/firstlibdaniel/
+

@@ -13,7 +13,7 @@
 #' - La fonction verifie la presence des colonnes obligatoires dans `data`.
 #' - Elle compte le nombre total de lignes du dataframe, supposant que chaque ligne represente un elu unique.
 #'
-compter_nombre_d_adjoints <- function(data) {
+compter_nombre_d_elus <- function(data) {
   if (!all(c("Nom.de.l.elu", "Prenom.de.l.elu", "Date.de.naissance") %in% colnames(data))) {
     stop("Les colonnes de nom, prenom et date de naissance doivent etre presentes dans le dataframe.")
   }
@@ -103,7 +103,7 @@ plot_code_professions <- function(data) {
 }
 
 
-# --------------- Fonction 5 : summary.commune ---------------
+# --------------- Fonction 5 : summary_commune ---------------
 #' Resume des donnees d'une commune
 #'
 #' Cette fonction genere un resume pour les objets de classe `commune`.
@@ -166,7 +166,7 @@ print.summary.commune <- function(x, ...) {
 }
 
 
-# --------------- Fonction 6 : summary.departement ---------------
+# --------------- Fonction 6 : summary_departement ---------------
 #' Summary des Departements
 #'
 #' Cette fonction genere un resume pour les objets de classe `departement`.
@@ -208,6 +208,7 @@ summary_departement <- function(object, ...) {
   return(result)
 }
 
+
 #' Methode S3 pour summary.departement
 #'
 #' Cette fonction redirige automatiquement `summary()` vers `summary_departement()`
@@ -238,7 +239,7 @@ print.summary.departement <- function(x, ...) {
 }
 
 
-# --------------- Fonction 7 : plot.commune ---------------
+# --------------- Fonction 7 : plot_commune ---------------
 #' Visualiser les catégories socio-professionnelles des Maires d'une commune
 #'
 #' Cette fonction genere un graphique en barres representant le nombre d'elus par code professionnel
@@ -283,7 +284,7 @@ print.summary.departement <- function(x, ...) {
 #' @importFrom ggplot2 ggplot aes geom_bar geom_text labs theme_minimal
 #' @importFrom stats reorder
 #' @export
-plot.commune <- function(x, ...) {
+plot_commune <- function(x, ...) {
   df <- x  # Assigne `x` a `df` pour garder le reste du code inchange
 
   # Verifier que le DataFrame respecte le schema attendu
@@ -321,8 +322,7 @@ plot.commune <- function(x, ...) {
 }
 
 
-
-# --------------- Fonction 8 : plot.departement ---------------
+# --------------- Fonction 8 : plot_departement ---------------
 #' Visualiser la repartition des elus par code professionnel dans un departement
 #'
 #' Cette fonction genere un graphique en barres representant le nombre d'elus par code professionnel
@@ -369,7 +369,7 @@ plot.commune <- function(x, ...) {
 #' @importFrom ggplot2 ggplot aes geom_bar geom_text labs theme_minimal
 #' @importFrom stats reorder
 #' @export
-plot.departement <- function(x, ...) {
+plot_departement <- function(x, ...) {
   df <- x  # Assigne `x` a `df` pour garder le reste du code inchange
 
   # Verifier que le DataFrame respecte la structure minimale
@@ -411,7 +411,6 @@ plot.departement <- function(x, ...) {
     ggplot2::theme_minimal()
 }
 
-
 # --------------- Fonction 9 : creer_commune ---------------
 #' Cette fonction transforme un dataframe representant une seule commune en un objet de classe "commune".
 #'
@@ -448,7 +447,6 @@ creer_commune <- function(df) {
 
   return(df)
 }
-
 
 # --------------- Fonction 10 : creer_departement ---------------
 #' Creer un Departement
@@ -495,6 +493,4 @@ creer_departement <- function(df) {
 
   return(df)
 }
-
-
 

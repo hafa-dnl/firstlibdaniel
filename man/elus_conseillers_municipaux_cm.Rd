@@ -13,9 +13,6 @@ Un data frame avec 9753 lignes et 16 colonnes :
 \item{...}{Autres colonnes}
 }
 }
-\source{
-\url{https://exemple.com/donnees}
-}
 \usage{
 elus_conseillers_municipaux_cm
 }

@@ -9,6 +9,6 @@
 #'   \item{Code de la collectivite}{Code unique de la collectivite}
 #'   \item{...}{Autres colonnes}
 #' }
-#' @source <https://exemple.com/donnees>
+#'
 "elus_conseillers_municipaux_cm"
 

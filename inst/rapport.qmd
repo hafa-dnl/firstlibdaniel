@@ -4,34 +4,48 @@ author: "Hafadhui DANIEL"
 format: html
 editor: visual
 params:
-  code_commune: "75056"
-  code_departement: "77"
+  code_commune: "44109"
+  code_departement: "44"
 output: html_document
 ---
 
-#### Introduction: chargement de la librairie et test avec paramètre
+```{r}
+options(repos = c(CRAN = "https://cloud.r-project.org"))
+```
 
 ```{r}
-# Charger la librairie 'firstlibdaniel'
+
+library(remotes)
+
+remotes::install_github("hafa-dnl/firstlibdaniel")
+
+library(devtools)
 library(firstlibdaniel)
+library(dplyr)
+library(ggplot2)
+```
 
-# Accéder aux paramètres passés dans le document Quarto
-code_commune <- params$code_commune
-code_departement <- params$code_departement
+#### Introduction: chargement de la librairie et test avec paramètre
 
-# Appel de la fonction summary pour la commune (en utilisant le code de la commune)
-summary.commune <- summary(code_commune)
-print(summary.commune)
+# Filtrer les données pour la commune spécifiée
 
-# Appel de la fonction plot pour la commune
-plot.commune <- plot(code_commune)
-print(plot.commune)
+```{r}
+data_commune <- elus_conseillers_municipaux_cm %>%
+  filter(Code.de.la.commune == params$code_commune)
+data_commune <- creer_commune(data_commune)
+plot_commune(data_commune)
+```
 
-# Appel de la fonction summary pour le département (en utilisant le code du département)
-summary.departement <- summary(code_departement)
-print(summary.departement)
+```{r}
+# Filtrer les données pour le département spécifié
+data_departement <- creer_departement(elus_conseillers_municipaux_cm %>%
+  filter(Code.du.departement == params$code_departement))
 
-# Appel de la fonction plot pour le département
-plot.departement <- plot(code_departement)
-print(plot.departement)
+plot_departement(data_departement)
+
+```
+
+```{r}
+summary_commune(data_commune)
+summary_departement(data_departement)
 ```

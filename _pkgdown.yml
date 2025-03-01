@@ -1,4 +1,6 @@
 url: https://hafa-dnl.github.io/firstlibdaniel/
 template:
   bootstrap: 5
-
+home:
+  title: "Documentation de firstlibdaniel"
+  description: "Un package R pour analyser les élus et générer des rapports."
