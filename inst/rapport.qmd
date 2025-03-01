@@ -1,0 +1,37 @@
+---
+title: "Rapport TD6"
+author: "Hafadhui DANIEL"
+format: html
+editor: visual
+params:
+  code_commune: "75056"
+  code_departement: "77"
+output: html_document
+---
+
+#### Introduction: chargement de la librairie et test avec paramètre
+
+```{r}
+# Charger la librairie 'firstlibdaniel'
+library(firstlibdaniel)
+
+# Accéder aux paramètres passés dans le document Quarto
+code_commune <- params$code_commune
+code_departement <- params$code_departement
+
+# Appel de la fonction summary pour la commune (en utilisant le code de la commune)
+summary.commune <- summary(code_commune)
+print(summary.commune)
+
+# Appel de la fonction plot pour la commune
+plot.commune <- plot(code_commune)
+print(plot.commune)
+
+# Appel de la fonction summary pour le département (en utilisant le code du département)
+summary.departement <- summary(code_departement)
+print(summary.departement)
+
+# Appel de la fonction plot pour le département
+plot.departement <- plot(code_departement)
+print(plot.departement)
+```

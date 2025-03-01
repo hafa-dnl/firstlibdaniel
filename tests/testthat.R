@@ -7,6 +7,6 @@
 # * https://testthat.r-lib.org/articles/special-files.html
 
 library(testthat)
-library(firstlibsabiron)
+library(firstlibdaniel)
 
-test_check("firstlibsabiron")
+test_check("firstlibdaniel")

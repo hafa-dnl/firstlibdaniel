@@ -113,6 +113,7 @@ plot_code_professions <- function(data) {
 #' @param ... Arguments supplementaires (non utilises).
 #'
 #' @return Un resume des informations de la commune sous forme de liste.
+#' @import magrittr
 #' @export
 summary_commune <- function(obj, ...) {
   # Verification de la classe
