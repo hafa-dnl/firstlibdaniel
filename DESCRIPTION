@@ -1,5 +1,5 @@
 Package: firstlibdaniel
-Title: What the Package Does (One Line, Title Case)
+Title: Descritpion des communes et départements
 Version: 0.0.0.9000
 Authors@R: 
     person("Hafadhui", "Daniel",email = "hafadhui.daniel@gmail.com", role = c("aut", "cre"))
@@ -22,3 +22,4 @@ Suggests:
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
 VignetteBuilder: quarto
+URL: https://hafa-dnl.github.io/firstlibdaniel/

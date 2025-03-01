@@ -1,5 +1,5 @@
 ---
-title: "Générer uun rapport d'analyses"
+title: "Générer un rapport d'analyses"
 author: "Hafadhui Daniel"
 output: rmarkdown::html_vignette
 vignette: >
@@ -45,13 +45,6 @@ Elle affiche :
 - l'élu le plus âgé
 
 
-### Execution de summary.commune()
-```{r}
-
-summary.commune(data)
-
-```
-
 
 
 ## Fonction summary_departement(df)
@@ -64,16 +57,6 @@ Elle affiche :
 - Le nombre total de communes
 - La distribution des âges des élus (par quartiles)
 - L’élu le plus âgé et l’élu le plus jeune
-
-### Exécution de summary.departement()
-
-```{r}
-
-# Exécution de la fonction pour un exemple
-summary.departement(data)
-
-```
-
 
 
 # Génération d’un Rapport Quarto
